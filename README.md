@@ -1,5 +1,35 @@
-# Faça um fork desse repositório
+# Seed challenge cdc
 
-Este é um repositório vazio de propósito. A ideia é que você faça um fork para que eu, Alberto, possa usar o github para ter a chance de olhar vários dos códigos produzido por você e seus(as) colegas da Jornada Dev Eficiente :). 
+This repository was created to train the challenge propused on [Jornada dev eficiente](https://deveficiente.com) class.
 
-Durante cada uma das seis semanas eu vou pegar código por amostragem e analisar. Feito isso, vou criar um vídeo anonimizando a pessoa que é dona do código, com as minhas observações e postar isso como material de suporte da funcionalidade :). 
+## Getting Started
+
+### Prerequisites
+ - .Net Core 8
+ - Visual Studio Code with the extensions:  **Rest Client**
+
+### How to run this project
+
+- Clone this project
+- Go to path where the project was cloned
+
+```bash
+  cd seed-challenge-cdc
+```
+#### Build and Running on project
+
+- Build:
+
+```bash
+  dotnet build 
+```
+
+- Running:
+
+```bash
+dotnet run --project src/seed-desafio-cdc.API 
+```
+
+### Contact
+
+Robson Calixto -  robsoncaliixto@gmail.com

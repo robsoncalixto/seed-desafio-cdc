@@ -1,0 +1,19 @@
+@API_HostAddress = http://localhost:5290
+@contentType = application/json
+
+
+POST {{API_HostAddress}}/author/
+Content-Type: {{contentType}}
+
+{
+    "name": "Robson Calixto",
+    "description": "My first author in this system", 
+    "email": "robson@teste.com"
+}
+
+###
+
+GET  {{API_HostAddress}}/author/
+Content-Type: {{contentType}}
+
+###
