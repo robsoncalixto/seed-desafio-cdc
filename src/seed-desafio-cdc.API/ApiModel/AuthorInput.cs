@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace seed_desafio_cdc.API;
 
@@ -11,18 +12,17 @@ public class AuthorInput
     [StringLength(maximumLength: 400)]
     public string? description { get; set; }
     
-    [Required(AllowEmptyStrings = false)]    
-    [DataType(DataType.EmailAddress)]
-    public string? email { get; set; }
+    [EmailValidator]
+    public string? emailAddress { get; set; }
 
-
-    public Author toModel(){
-        
-        return new Author{
-            Name = name,
-            Description = description,
-            Email = email
-        };
+    public AuthorInput(string name, string description, string emailAddress)
+    {
+        this.name = name;
+        this.description = description;
+        this.emailAddress = emailAddress;
     }
 
+    public Author toModel(){
+        return new Author( name: name, email: emailAddress , description: description);
+    }
 }

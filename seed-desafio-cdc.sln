@@ -7,21 +7,30 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{61E65483-632
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "seed-desafio-cdc.API", "src\seed-desafio-cdc.API\seed-desafio-cdc.API.csproj", "{A8BBE4BD-CF9B-49E1-A19A-631FE8E2E273}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{446BA648-B83C-439D-9CF9-7082DDB1D962}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "seed-desafio-cdc.IntegrationTest", "test\seed-desafio-cdc.Test\seed-desafio-cdc.IntegrationTest.csproj", "{29C81365-D5DA-4E7E-88A9-E80DADADE686}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{A8BBE4BD-CF9B-49E1-A19A-631FE8E2E273}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A8BBE4BD-CF9B-49E1-A19A-631FE8E2E273}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8BBE4BD-CF9B-49E1-A19A-631FE8E2E273}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8BBE4BD-CF9B-49E1-A19A-631FE8E2E273}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29C81365-D5DA-4E7E-88A9-E80DADADE686}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29C81365-D5DA-4E7E-88A9-E80DADADE686}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29C81365-D5DA-4E7E-88A9-E80DADADE686}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29C81365-D5DA-4E7E-88A9-E80DADADE686}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{A8BBE4BD-CF9B-49E1-A19A-631FE8E2E273} = {61E65483-6328-41AD-A58A-5B9524D8BDEF}
+		{29C81365-D5DA-4E7E-88A9-E80DADADE686} = {446BA648-B83C-439D-9CF9-7082DDB1D962}
 	EndGlobalSection
 EndGlobal

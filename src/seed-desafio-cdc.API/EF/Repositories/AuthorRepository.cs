@@ -22,4 +22,10 @@ public class AuthorRepository : IAuthorRepository
     public async Task<IEnumerable<Author>> ListAsync(){
         return await _context.Authors.ToListAsync();
     }
+
+    public Task<Author?> FindByEmailAsync(string email)
+    {
+        var author = _context.Authors.Where( a => a.Email == email).FirstOrDefaultAsync();
+        return author;
+    }
 }

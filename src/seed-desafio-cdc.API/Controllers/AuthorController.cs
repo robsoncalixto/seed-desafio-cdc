@@ -15,7 +15,12 @@ public class AuthorController : ControllerBase
 
     [HttpPost]
     public async Task<IActionResult> Create([FromBody] AuthorInput input)
-    {
+    {   
+        var emailExisting = await repository.FindByEmailAsync(input.emailAddress!);        
+        if(emailExisting != null){
+            ModelState.AddModelError("Email", "Email already exists.");
+            return  BadRequest(ModelState);
+        }       
         return Ok(await repository.SaveAsync(input.toModel()));
     }
 

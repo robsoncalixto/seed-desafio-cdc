@@ -9,10 +9,12 @@ public class Author
     public string? Name { get; set; }
     public string? Email { get; set; }
     public string? Description { get; set; }
-    public DateTime AtCreated { get; set; }
-
-    public Author()
+    public DateTime AtCreated = DateTime.Now;
+    
+    public Author(string? name, string? email, string? description)
     {
-        AtCreated = DateTime.Now;        
+        Name = name;
+        Email = email;
+        Description = description;
     }
 }

@@ -1,19 +1,27 @@
 @API_HostAddress = http://localhost:5290
 @contentType = application/json
 
-
+### Ok - Create a new author
 POST {{API_HostAddress}}/author/
 Content-Type: {{contentType}}
 
 {
     "name": "Robson Calixto",
-    "description": "My first author in this system", 
-    "email": "robson@teste.com"
+    "description": "created a new author", 
+    "emailAddress": "robson@test.com"
 }
 
-###
+### BadRequest - Email Address is invalid
+POST {{API_HostAddress}}/author/
+Content-Type: {{contentType}}
 
+{
+    "name": "Robson Calixto",
+    "description": "created a new author", 
+    "emailAddress": "robsont.com"
+}
+
+### Ok - List all authors
 GET  {{API_HostAddress}}/author/
 Content-Type: {{contentType}}
 
-###
