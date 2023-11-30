@@ -8,4 +8,5 @@ public class DataBaseContextInMemory : DbContext
     {        
     }
     public DbSet<Author> Authors { get; set; }
+    public DbSet<Category> Categories { get; set; }
 }

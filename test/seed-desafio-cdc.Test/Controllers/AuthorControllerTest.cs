@@ -1,7 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc.Testing;
-using seed_desafio_cdc.API;
+﻿using seed_desafio_cdc.API;
 
-namespace seed_desafio_cdc.IntegrationTest.Author;
+namespace seed_desafio_cdc.IntegrationTest.Controllers;
 
 public class AuthorControllerTest : IClassFixture<WebApplicationFactory<Program>>
 {
@@ -15,7 +14,7 @@ public class AuthorControllerTest : IClassFixture<WebApplicationFactory<Program>
 
     [Trait("Integration","AuthorControllerTest")]
     [Fact(DisplayName = "Should create a new author")]   
-    public async Task ShouldCreateAuthor()
+    public async Task Post_ShouldCreateAuthor_Return200Ok()
     {
         var authorInput = new AuthorInput("Robson Calixto","created a new author", "teste@teste.com");
 
@@ -34,7 +33,7 @@ public class AuthorControllerTest : IClassFixture<WebApplicationFactory<Program>
 
     [Trait("Integration","AuthorControllerTest")]
     [Fact(DisplayName = "Should not create a new author with email already exists")] 
-    public async Task ShouldNotCreateANewAuthorIfEmailAlready()
+    public async Task Post_ShouldNotCreateANewAuthorIfEmailAlready_Return400BadRequest()
     {
         var client = factory.CreateClient();
         
@@ -42,5 +41,25 @@ public class AuthorControllerTest : IClassFixture<WebApplicationFactory<Program>
         var response = await client.PostAsJsonAsync("/author", authorInput);
         
         response.StatusCode.Should().Be(System.Net.HttpStatusCode.BadRequest);         
+    }
+
+    [Trait("Integration","AuthorControllerTest")]
+    [Fact(DisplayName = "Should not create a new author empty")]
+    public async Task Post_ShouldNotCreateANewAuthorIfNameEmpty_Return400BadRequest()
+    {
+        var client = factory.CreateClient();
+        var authorInput = new AuthorInput("","","");
+
+        var response = await client.PostAsJsonAsync("/author", authorInput);
+
+        response.StatusCode.Should().Be(System.Net.HttpStatusCode.BadRequest);
+
+        var validationProblems = await response.Content.ReadFromJsonAsync<ValidationProblemDetails>();
+        validationProblems!.Errors.Should().ContainKey("name");
+        validationProblems.Errors["name"].Should().Contain("The name field is required.");
+        validationProblems!.Errors.Should().ContainKey("description");
+        validationProblems.Errors["description"].Should().Contain("The description field is required.");
+        validationProblems!.Errors.Should().ContainKey("emailAddress");
+        validationProblems.Errors["emailAddress"].Should().Contain("Email is required.");
     }
 }

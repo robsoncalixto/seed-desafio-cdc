@@ -6,6 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddDbContext<DataBaseContextInMemory>( opt => opt.UseInMemoryDatabase("authors"));
 builder.Services.AddScoped<IAuthorRepository,AuthorRepository>(); 
+builder.Services.AddScoped<ICategoryRepository,CategoryRepository>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

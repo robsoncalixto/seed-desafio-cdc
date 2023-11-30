@@ -1,0 +1,14 @@
+@API_HostAddress = http://localhost:5290
+@contentType = application/json
+
+### Ok - Create a new category
+POST {{API_HostAddress}}/category/
+Content-Type: {{contentType}}
+
+{
+    "name": "Category 1"
+}
+
+### OK - Get all categories
+GET {{API_HostAddress}}/category/
+Content-Type: {{contentType}}

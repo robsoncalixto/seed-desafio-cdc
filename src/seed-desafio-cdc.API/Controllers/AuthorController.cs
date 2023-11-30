@@ -6,15 +6,10 @@ namespace seed_desafio_cdc.API;
 [Route("[controller]")]
 public class AuthorController : ControllerBase
 {
-    private readonly IAuthorRepository repository;
-
-    public AuthorController(IAuthorRepository repository)
-    {
-        this.repository = repository;
-    }
+ 
 
     [HttpPost]
-    public async Task<IActionResult> Create([FromBody] AuthorInput input)
+    public async Task<IActionResult> Create([FromServices] IAuthorRepository repository, [FromBody] AuthorInput input)
     {   
         var emailExisting = await repository.FindByEmailAsync(input.emailAddress!);        
         if(emailExisting != null){
@@ -25,7 +20,7 @@ public class AuthorController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<IActionResult> List(){
+    public async Task<IActionResult> List([FromServices] IAuthorRepository repository ){
         return Ok(await repository.ListAsync());
     }
 }

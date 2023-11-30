@@ -6,19 +6,9 @@ POST {{API_HostAddress}}/author/
 Content-Type: {{contentType}}
 
 {
-    "name": "Robson Calixto",
+    "name": "Author 1",
     "description": "created a new author", 
-    "emailAddress": "robson@test.com"
-}
-
-### BadRequest - Email Address is invalid
-POST {{API_HostAddress}}/author/
-Content-Type: {{contentType}}
-
-{
-    "name": "Robson Calixto",
-    "description": "created a new author", 
-    "emailAddress": "robsont.com"
+    "emailAddress": "author@test.com"
 }
 
 ### Ok - List all authors
