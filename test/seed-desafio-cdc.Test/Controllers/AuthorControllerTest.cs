@@ -60,6 +60,6 @@ public class AuthorControllerTest : IClassFixture<WebApplicationFactory<Program>
         validationProblems!.Errors.Should().ContainKey("description");
         validationProblems.Errors["description"].Should().Contain("The description field is required.");
         validationProblems!.Errors.Should().ContainKey("emailAddress");
-        validationProblems.Errors["emailAddress"].Should().Contain("Email is required.");
+        validationProblems.Errors["emailAddress"].Should().Contain("The emailAddress field is required.");
     }
 }

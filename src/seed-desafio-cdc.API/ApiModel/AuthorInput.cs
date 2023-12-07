@@ -11,7 +11,8 @@ public class AuthorInput
     [StringLength(maximumLength: 400)]
     public string? description { get; set; }
     
-    [EmailValidator]
+    [Required(AllowEmptyStrings = false)] 
+    [UniqueValue("email", typeof(Author))]
     public string? emailAddress { get; set; }
 
     public AuthorInput(string name, string description, string emailAddress)

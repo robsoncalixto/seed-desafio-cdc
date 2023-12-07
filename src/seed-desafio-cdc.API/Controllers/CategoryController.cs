@@ -10,12 +10,6 @@ public class CategoryController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> Post([FromServices] ICategoryRepository repository, [FromBody] CategoryInput input)
     {
-        var categoryExisting = await repository.FindByNameAsync(input.name);
-        
-        if (categoryExisting != null){            
-            ModelState.AddModelError("Name","Category already exists.");
-            return  BadRequest(ModelState);
-        } 
         var category = await repository.SaveAsync(input.ToModel());
         return Ok(category);
     }

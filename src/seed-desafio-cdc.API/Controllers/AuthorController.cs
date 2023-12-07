@@ -6,17 +6,10 @@ namespace seed_desafio_cdc.API;
 [Route("[controller]")]
 public class AuthorController : ControllerBase
 {
- 
-
     [HttpPost]
     public async Task<IActionResult> Create([FromServices] IAuthorRepository repository, [FromBody] AuthorInput input)
-    {   
-        var emailExisting = await repository.FindByEmailAsync(input.emailAddress!);        
-        if(emailExisting != null){
-            ModelState.AddModelError("Email", "Email already exists.");
-            return  BadRequest(ModelState);
-        }       
-        return Ok(await repository.SaveAsync(input.toModel()));
+    {
+           return Ok(await repository.SaveAsync(input.toModel()));
     }
 
     [HttpGet]
