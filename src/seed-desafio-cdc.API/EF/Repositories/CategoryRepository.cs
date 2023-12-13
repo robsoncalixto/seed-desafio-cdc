@@ -4,9 +4,9 @@ namespace seed_desafio_cdc.API;
 
 public class CategoryRepository : ICategoryRepository
 {
-    private readonly DataBaseContextInMemory _context;
+    private readonly DbContextPostgres _context;
 
-    public CategoryRepository(DataBaseContextInMemory context)
+    public CategoryRepository(DbContextPostgres context)
     {
         _context = context;
     }

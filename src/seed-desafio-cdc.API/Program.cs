@@ -4,7 +4,7 @@ using seed_desafio_cdc.API;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
-builder.Services.AddDbContext<DataBaseContextInMemory>( opt => opt.UseInMemoryDatabase("authors"));
+builder.Services.AddDbContext<DbContextPostgres>( opt =>  opt.UseNpgsql(builder.Configuration.GetConnectionString("seed_desafio_cdc")));
 builder.Services.AddScoped<IAuthorRepository,AuthorRepository>(); 
 builder.Services.AddScoped<ICategoryRepository,CategoryRepository>();
 

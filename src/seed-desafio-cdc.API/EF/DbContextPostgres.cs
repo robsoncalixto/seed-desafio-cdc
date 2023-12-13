@@ -2,11 +2,11 @@
 
 namespace seed_desafio_cdc.API;
 
-public class DataBaseContextInMemory : DbContext
+public class DbContextPostgres : DbContext
 {
-    public DataBaseContextInMemory(DbContextOptions<DataBaseContextInMemory> options) : base (options)
-    {        
-    }
     public DbSet<Author> Authors { get; set; }
     public DbSet<Category> Categories { get; set; }
+
+    public DbContextPostgres(DbContextOptions<DbContextPostgres> options) : base(options){ }         
+    
 }

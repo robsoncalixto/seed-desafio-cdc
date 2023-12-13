@@ -7,6 +7,7 @@ This repository was created to train the challenge propused on [Jornada dev efic
 ### Prerequisites
  - .Net Core 8
  - Visual Studio Code with the extensions:  **Rest Client**
+ - Docker
 
 ### How to run this project
 
@@ -16,6 +17,13 @@ This repository was created to train the challenge propused on [Jornada dev efic
 ```bash
   cd seed-challenge-cdc
 ```
+
+#### Running tests
+
+```bash
+  dotnet test 
+```
+
 #### Build and Running on project
 
 - Build:

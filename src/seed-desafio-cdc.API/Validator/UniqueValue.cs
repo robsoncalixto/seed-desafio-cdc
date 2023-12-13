@@ -18,7 +18,7 @@ public class UniqueValue : ValidationAttribute
     protected override ValidationResult IsValid(object? value, ValidationContext validationContext)
     {
 #pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
-        var context = (DataBaseContextInMemory)validationContext.GetService(typeof(DataBaseContextInMemory));
+        var context = (DbContextPostgres)validationContext.GetService(typeof(DbContextPostgres));
 #pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.        
 
         var property = validationContext.ObjectType.GetProperty(Field);

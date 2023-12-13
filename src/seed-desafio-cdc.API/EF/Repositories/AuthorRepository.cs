@@ -5,9 +5,9 @@ namespace seed_desafio_cdc.API;
 
 public class AuthorRepository : IAuthorRepository
 {
-    private readonly DataBaseContextInMemory _context;
+    private readonly DbContextPostgres _context;
 
-    public AuthorRepository(DataBaseContextInMemory context)
+    public AuthorRepository(DbContextPostgres context)
     {
         _context = context;
     }
